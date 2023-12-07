@@ -10,7 +10,6 @@ class MemoListPage extends StatefulWidget {
   const MemoListPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _MemoListPageState createState() => _MemoListPageState();
 }
 
@@ -92,12 +91,12 @@ class _MemoListPageState extends State<MemoListPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ()  {
-          //final prefs =  SharedPreferences.getInstance();
+        onPressed: () async {
+          final prefs = await SharedPreferences.getInstance();
           // "push"で新規画面に遷移
           // メモ追加画面から渡される値を受け取る
-          //final newListText = 
-           Navigator.of(context).push(
+          final newListText = 
+          await Navigator.of(context).push(
             MaterialPageRoute(
                // 遷移先の画面としてメモ追加画面),
               builder: (context) => const MemoAddPage(),
@@ -110,7 +109,7 @@ class _MemoListPageState extends State<MemoListPage> {
               memoList.add(newListText);
             });
           }*/
-          //prefs.setStringList("memoList", memoList);
+          prefs.setStringList("memoList", memoList);
         },
         child: const Icon(Icons.add),
       ),

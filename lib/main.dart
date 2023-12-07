@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sauna_v1/list.dart';
+
+import 'list.dart';
 
 
 void main() {
@@ -16,3 +17,4 @@ class MainApp extends StatelessWidget {
     );
   }
 }
+
