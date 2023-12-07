@@ -30,7 +30,7 @@ class _MemoEditPageState extends State<MemoEditPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MemoEdit'),
+        title: const Text('編集画面'),
       ),
       body: Container(
         // 余白を付ける

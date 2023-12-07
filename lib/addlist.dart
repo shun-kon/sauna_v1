@@ -5,7 +5,7 @@ class MemoAddPage extends StatefulWidget {
   const MemoAddPage({super.key});
 
   @override
-  _MemoAddPageState createState() => _MemoAddPageState();
+  State<MemoAddPage> createState() => _MemoAddPageState();
 }
 
 class _MemoAddPageState extends State<MemoAddPage> {
@@ -17,7 +17,7 @@ class _MemoAddPageState extends State<MemoAddPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("MemoAdd"),
+        title: const Text("サウナ登録画面"),
       ),
       body: Container(
         // 余白を付ける

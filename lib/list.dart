@@ -6,11 +6,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'addlist.dart';
 import 'editlist.dart';
 
+
 class MemoListPage extends StatefulWidget {
   const MemoListPage({super.key});
 
   @override
-  _MemoListPageState createState() => _MemoListPageState();
+  State<MemoListPage> createState() => _MemoListPageState();
 }
 
 class _MemoListPageState extends State<MemoListPage> {
@@ -23,7 +24,7 @@ class _MemoListPageState extends State<MemoListPage> {
     init();
   }
 
-  // アプリ起動時に保存したデータを読み込む
+   //アプリ起動時に保存したデータを読み込む;
   void init() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -102,13 +103,13 @@ class _MemoListPageState extends State<MemoListPage> {
               builder: (context) => const MemoAddPage(),
             ),
           );
-          /*if (newListText != null) {
+          if (newListText != null) {
             // キャンセルした場合は、newListText が null となるため注意
             setState(() {
               // リスト追加
               memoList.add(newListText);
             });
-          }*/
+          }
           prefs.setStringList("memoList", memoList);
         },
         child: const Icon(Icons.add),
