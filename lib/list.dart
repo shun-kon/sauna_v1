@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'addlist.dart';
+import 'editlist.dart';
+
 class MemoListPage extends StatefulWidget {
   const MemoListPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MemoListPageState createState() => _MemoListPageState();
 }
 
@@ -33,7 +37,7 @@ class _MemoListPageState extends State<MemoListPage> {
     return Scaffold(
       // AppBarを表示し、タイトルも設定
       appBar: AppBar(
-        title: const Text("MemoList"),
+        title: const Text("サウナ手帳"),
       ),
       // データを元にListViewを作成
       body: ListView.builder(
@@ -88,24 +92,25 @@ class _MemoListPageState extends State<MemoListPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final prefs = await SharedPreferences.getInstance();
+        onPressed: ()  {
+          //final prefs =  SharedPreferences.getInstance();
           // "push"で新規画面に遷移
           // メモ追加画面から渡される値を受け取る
-          final newListText = await Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              // 遷移先の画面としてメモ追加画面を指定
-              return MemoAddPage();
-            }),
+          //final newListText = 
+           Navigator.of(context).push(
+            MaterialPageRoute(
+               // 遷移先の画面としてメモ追加画面),
+              builder: (context) => const MemoAddPage(),
+            ),
           );
-          if (newListText != null) {
+          /*if (newListText != null) {
             // キャンセルした場合は、newListText が null となるため注意
             setState(() {
               // リスト追加
               memoList.add(newListText);
             });
-          }
-          prefs.setStringList("memoList", memoList);
+          }*/
+          //prefs.setStringList("memoList", memoList);
         },
         child: const Icon(Icons.add),
       ),
